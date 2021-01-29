@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"strings"
 
 	"github.com/labstack/echo/v4"
 )
@@ -25,6 +26,8 @@ func main() {
 		if err := c.Bind(message); err != nil { //เก็บค่า request ลงตัวแปร
 			return c.String(500, "error")
 		}
+
+		message.Text = strings.ToLower(message.Text)
 		//เช็คค่าใน map
 		if count, found := m[message.Text]; found {
 			countplus := count + 1
