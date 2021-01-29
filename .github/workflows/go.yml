@@ -20,3 +20,12 @@ jobs:
 
     - name: Build
       run: go build -v .
+    
+    - name: Copy single file to remote
+      uses: garygrossgarten/github-action-scp@release
+      with:
+        local: lab1
+        remote: lab1
+        host: b1.tnpl.me
+        username: azureuser
+        password: CRT200858christy
